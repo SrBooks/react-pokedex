@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { colorByType } from "../constants/colorByType"
+import { colorByType } from "../constants/colorByType.js"
 
 export const PokemonCard = ({ pokemonURL }) => {
 

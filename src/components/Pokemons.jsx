@@ -29,7 +29,7 @@ const Pokemons = () => {
     }
 
     const pokemonByName = allPokemons.filter( (pokemon) => pokemon.name.includes(namePokemon));
-
+    
     useEffect(() => {
         axios
             .get("https://pokeapi.co/api/v2/pokemon?limit=898")
@@ -38,8 +38,8 @@ const Pokemons = () => {
     }, [])
 
     useEffect(() => {
-        if(isVisible){
-            const maxLimitPokemons = pokemonByName.length;
+        const maxLimitPokemons = pokemonByName.length;
+        if(maxLimitPokemons !== 0 && isVisible){
             const newFilterLimit = filterLimit + INCREASE_LIMIT;
             newFilterLimit > maxLimitPokemons ? setFilterLimit(maxLimitPokemons) : setFilterLimit(newFilterLimit);
         }
@@ -54,7 +54,7 @@ const Pokemons = () => {
                     placeholder="Search your Pokémon" 
                     onChange={handleChangeNamePokemon}
                 />
-                <button className="bg-red-500 rounded-full p-1 hover:bg-[#000] transition-colors">
+                <button className="bg-red-500 rounded-full p-1 hover:bg-[#000] transition-colors" type="button">
                     <IconPokeball color="#fff" size={"30px"}/>
                 </button>
             </div>
