@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { colorByType } from "../constants/colorByType.js"
 
-export const PokemonCard = ({ pokemonURL }) => {
+export const PokemonCard = ({ pokemonURL, onClick }) => {
 
     const [pokemon, setPokemon] = useState(null)
 
@@ -17,7 +17,9 @@ export const PokemonCard = ({ pokemonURL }) => {
     return (
         pokemon &&
         
-        <article className="text-center bg-white rounded-[20px] relative font-semibold capitalize pb-2
+        <article 
+        onClick={onClick}
+        className="text-center bg-white rounded-[20px] relative font-semibold capitalize pb-2
         shadow-lg shadow-slate-400/10 border-2 border-transparent hover:border-[#7e7cb48a] transition-colors cursor-pointer group">
             <header className="h-8">
                 <img 
